@@ -1,0 +1,83 @@
+@import "./colors";
+
+.flex {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+
+  &.flex-row {
+    flex-direction: row;
+  }
+
+  &.flex-max {
+    flex: 1 0 auto;
+  }
+
+  &.flex-min {
+    flex: 0 0 auto;
+  }
+
+  &.flex-shrink {
+    flex: 0 1 auto;
+  }
+
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.flex-wrap-mob {
+    //@include mobile {
+    //  flex-wrap: wrap;
+    //}
+  }
+
+  &.flex-align {
+    align-items: center;
+  }
+
+  &.flex-justify {
+    justify-content: center;
+  }
+
+  &.flex-start {
+    align-self: flex-start;
+  }
+
+  &.flex-end {
+    align-self: flex-end;
+  }
+
+  &.flex-between {
+    justify-content: space-between;
+  }
+}
+
+.flex-cols {
+  margin: 0 -10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+
+  &.flex-cols-large {
+    margin: 0 -30px;
+
+    .not-desktop & {
+      margin: 0 -20px;
+    }
+
+    .flex-col {
+      padding: 0 30px;
+
+      .not-desktop & {
+        padding: 0 20px;
+      }
+    }
+  }
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  flex: 1 0 0px;
+}

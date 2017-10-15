@@ -1,0 +1,78 @@
+@import "./../../global/colors";
+
+[component="popup"] {
+  position: fixed;
+  top: 0;
+  left:0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  pointer-events: none;
+  opacity: 0;
+
+  &[active="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    transition: .6s;
+    pointer-events: auto;
+  }
+
+  .popup-box {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 100px;
+
+    width: 400px;
+
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    //border: solid 1px #e8e8e8;
+    text-align: center;
+
+    .popup-header {
+      font-size: 22px;
+      font-weight: 600;
+      //text-align: left;
+      padding: 20px 20px 0;
+    }
+
+    .popup-content {
+      padding: 20px;
+
+      .login-logos {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .login-item {
+        height: 50px;
+        width: 50px;
+        border-radius: 100px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+
+        img {
+          height: 50px;
+        }
+
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+node_modules
+.idea
+/release/app.bundle.js.map
+/release/lib.bundle.js.map
