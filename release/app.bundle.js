@@ -71199,7 +71199,7 @@ var PopupComponent = function (_React$Component) {
             firebase.auth().signInWithPopup(provider).then(function () {
                 (0, _dispatch.Dispatch)({ type: ACTIONS.SET_POPUP, active: false });
             }).catch(function (error) {
-                console.error('signup error');
+                console.error('signup error', error);
                 (0, _dispatch.Dispatch)({ type: ACTIONS.SET_POPUP, active: false });
             });
         }

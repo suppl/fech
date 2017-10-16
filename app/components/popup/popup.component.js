@@ -22,7 +22,7 @@ class PopupComponent extends React.Component {
                 Dispatch({type: ACTIONS.SET_POPUP, active: false});
             })
             .catch(error => {
-                console.error('signup error');
+                console.error('signup error', error);
                 Dispatch({type: ACTIONS.SET_POPUP, active: false});
             });
     }
@@ -38,8 +38,9 @@ class PopupComponent extends React.Component {
             <div component="popup" active={String(Popup.active)}>
                 <div className="popup-box">
                     <div className="popup-close clickable" onClick={this.hide}>
-                        <span className="sicon-uniE7D7"></span>
+                        <span className="sicon-uniE7D7"/>
                     </div>
+
                     <div className="popup-header">
                         Login
                     </div>
