@@ -24,7 +24,7 @@ const app = express(),
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(express.static('./../release'));
+// app.use(express.static('./../release'));
 app.set('view engine', 'ejs');
 
 const server = app.listen(port, () => {

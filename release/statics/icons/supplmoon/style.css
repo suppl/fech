@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'supplMoon';
-  src:  url('fonts/supplMoon.eot?k3ghla');
-  src:  url('fonts/supplMoon.eot?k3ghla#iefix') format('embedded-opentype'),
-    url('fonts/supplMoon.woff2?k3ghla') format('woff2'),
-    url('fonts/supplMoon.ttf?k3ghla') format('truetype'),
-    url('fonts/supplMoon.woff?k3ghla') format('woff'),
-    url('fonts/supplMoon.svg?k3ghla#supplMoon') format('svg');
+  src:  url('fonts/supplMoon.eot');
+  src:  url('fonts/supplMoon.eot#iefix') format('embedded-opentype'),
+    url('fonts/supplMoon.woff2') format('woff2'),
+    url('fonts/supplMoon.ttf') format('truetype'),
+    url('fonts/supplMoon.woff') format('woff'),
+    url('fonts/supplMoon.svg#supplMoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
