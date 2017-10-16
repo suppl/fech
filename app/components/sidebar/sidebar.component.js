@@ -35,6 +35,8 @@ class SidebarComponent extends React.Component {
     }
 
     render() {
+        const User = this.props.User;
+
         return (
             <div component="sidebar">
                 <div className="sidebar-logo">
@@ -55,11 +57,20 @@ class SidebarComponent extends React.Component {
 
                 <div style={{margin: 'auto'}}/>
 
-
                 <div className="sidebar-login">
-                    <div className="login-item clickable" onClick={this.showAuthPopup}>
-                        <span className="sicon-uniE740"/>
-                    </div>
+
+                    {!User.user ?
+                        <div className="login-item clickable" onClick={this.showAuthPopup}>
+                            <span className="sicon-uniE740"/>
+                        </div> : ''
+                    }
+
+                    {User.user ?
+                        <div className="login-item clickable"
+                             style={{backgroundImage:`url(${User.user.photoURL})`}}
+                             title={User.user.displayName}
+                        /> : ''
+                    }
                 </div>
 
 

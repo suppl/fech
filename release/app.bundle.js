@@ -22877,6 +22877,10 @@ var _popup = __webpack_require__(581);
 
 var _popup2 = _interopRequireDefault(_popup);
 
+var _user = __webpack_require__(583);
+
+var _user2 = _interopRequireDefault(_user);
+
 var _sidebar = __webpack_require__(445);
 
 var _sidebar2 = _interopRequireDefault(_sidebar);
@@ -22908,7 +22912,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var store = exports.store = (0, _redux.createStore)((0, _redux.combineReducers)({
     Nav: _nav2.default,
-    Popup: _popup2.default
+    Popup: _popup2.default,
+    User: _user2.default
 }));
 
 __webpack_require__(452);
@@ -54501,6 +54506,8 @@ var SidebarComponent = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            var User = this.props.User;
+
             return _react2.default.createElement(
                 'div',
                 { component: 'sidebar' },
@@ -54528,11 +54535,15 @@ var SidebarComponent = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'sidebar-login' },
-                    _react2.default.createElement(
+                    !User.user ? _react2.default.createElement(
                         'div',
                         { className: 'login-item clickable', onClick: this.showAuthPopup },
                         _react2.default.createElement('span', { className: 'sicon-uniE740' })
-                    )
+                    ) : '',
+                    User.user ? _react2.default.createElement('div', { className: 'login-item clickable',
+                        style: { backgroundImage: 'url(' + User.user.photoURL + ')' },
+                        title: User.user.displayName
+                    }) : ''
                 )
             );
         }
@@ -54587,7 +54598,7 @@ exports = module.exports = __webpack_require__(117)(undefined);
 
 
 // module
-exports.push([module.i, "[component=\"sidebar\"] {\n  flex: 0 0 auto;\n  width: 80px;\n  display: flex;\n  flex-direction: column;\n  background-color: #f7f7f7;\n  background-color: #f1f2f4; }\n  [component=\"sidebar\"] .sidebar-logo {\n    height: 80px;\n    width: 80px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #68a5ff;\n    font-size: 50px; }\n  [component=\"sidebar\"] .sidebar-menu {\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    [component=\"sidebar\"] .sidebar-menu .menu-item {\n      height: 40px;\n      width: 40px;\n      border-radius: 4px;\n      transition: .15s;\n      cursor: pointer;\n      color: #a8a8a8;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      margin-top: 20px;\n      font-size: 24px; }\n      [component=\"sidebar\"] .sidebar-menu .menu-item:hover {\n        background-color: #ececec;\n        color: #68a5ff; }\n      [component=\"sidebar\"] .sidebar-menu .menu-item[active=\"true\"] {\n        background-color: #ececec;\n        color: #68a5ff; }\n  [component=\"sidebar\"] .sidebar-login {\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    [component=\"sidebar\"] .sidebar-login .login-item {\n      height: 50px;\n      width: 50px;\n      border-radius: 100px;\n      background: white;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      margin-bottom: 20px;\n      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);\n      font-size: 24px; }\n      [component=\"sidebar\"] .sidebar-login .login-item img {\n        height: 40px; }\n", ""]);
+exports.push([module.i, "[component=\"sidebar\"] {\n  flex: 0 0 auto;\n  width: 80px;\n  display: flex;\n  flex-direction: column;\n  background-color: #f7f7f7;\n  background-color: #f1f2f4; }\n  [component=\"sidebar\"] .sidebar-logo {\n    height: 80px;\n    width: 80px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #68a5ff;\n    font-size: 50px; }\n  [component=\"sidebar\"] .sidebar-menu {\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    [component=\"sidebar\"] .sidebar-menu .menu-item {\n      height: 40px;\n      width: 40px;\n      border-radius: 4px;\n      transition: .15s;\n      cursor: pointer;\n      color: #a8a8a8;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      margin-top: 20px;\n      font-size: 24px; }\n      [component=\"sidebar\"] .sidebar-menu .menu-item:hover {\n        background-color: #ececec;\n        color: #68a5ff; }\n      [component=\"sidebar\"] .sidebar-menu .menu-item[active=\"true\"] {\n        background-color: #ececec;\n        color: #68a5ff; }\n  [component=\"sidebar\"] .sidebar-login {\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    [component=\"sidebar\"] .sidebar-login .login-item {\n      height: 50px;\n      width: 50px;\n      border-radius: 100px;\n      background: white;\n      background-size: cover;\n      background-position: center;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      margin-bottom: 20px;\n      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);\n      font-size: 24px; }\n      [component=\"sidebar\"] .sidebar-login .login-item img {\n        height: 40px; }\n", ""]);
 
 // exports
 
@@ -71128,14 +71139,175 @@ webpackContext.id = 577;
 
 /***/ }),
 /* 578 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: JSX attributes must only be assigned a non-empty expression (34:74)\n\n\u001b[0m \u001b[90m 32 | \u001b[39m\n \u001b[90m 33 | \u001b[39m                        \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"login-logos\"\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 | \u001b[39m                            \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"login-item clickable\"\u001b[39m onClick\u001b[33m=\u001b[39m{}\u001b[33m>\u001b[39m\n \u001b[90m    | \u001b[39m                                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 35 | \u001b[39m                                \u001b[33m<\u001b[39m\u001b[33mimg\u001b[39m src\u001b[33m=\u001b[39m\u001b[32m\"/statics/img/logos/google.svg\"\u001b[39m style\u001b[33m=\u001b[39m{{height\u001b[33m:\u001b[39m\u001b[35m40\u001b[39m}}\u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 36 | \u001b[39m                            \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 37 | \u001b[39m                            \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"login-item clickable\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(107);
+
+var _reactRouterDom = __webpack_require__(417);
+
+var _dispatch = __webpack_require__(444);
+
+var _actions = __webpack_require__(582);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+__webpack_require__(579);
+
+var PopupComponent = function (_React$Component) {
+    _inherits(PopupComponent, _React$Component);
+
+    function PopupComponent() {
+        _classCallCheck(this, PopupComponent);
+
+        return _possibleConstructorReturn(this, (PopupComponent.__proto__ || Object.getPrototypeOf(PopupComponent)).apply(this, arguments));
+    }
+
+    _createClass(PopupComponent, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            console.info('PopupComponent', this.props);
+        }
+    }, {
+        key: 'googleAuth',
+        value: function googleAuth() {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            provider.addScope('https://www.googleapis.com/auth/plus.login');
+
+            firebase.auth().signInWithPopup(provider).then(function () {
+                (0, _dispatch.Dispatch)({ type: ACTIONS.SET_POPUP, active: false });
+            }).catch(function (error) {
+                console.error('signup error');
+                (0, _dispatch.Dispatch)({ type: ACTIONS.SET_POPUP, active: false });
+            });
+        }
+    }, {
+        key: 'hide',
+        value: function hide() {
+            (0, _dispatch.Dispatch)({ type: ACTIONS.SET_POPUP, active: false });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var Popup = this.props.Popup;
+
+            return _react2.default.createElement(
+                'div',
+                { component: 'popup', active: String(Popup.active) },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'popup-box' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'popup-close clickable', onClick: this.hide },
+                        _react2.default.createElement('span', { className: 'sicon-uniE7D7' })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'popup-header' },
+                        'Login'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'popup-content' },
+                        'Login with one of the social networks.',
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'login-logos' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'login-item clickable', onClick: this.googleAuth },
+                                _react2.default.createElement('img', { src: '/statics/img/logos/google.svg', style: { height: 40 } })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'login-item clickable' },
+                                _react2.default.createElement('img', { src: '/statics/img/logos/facebook.png' })
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return PopupComponent;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return state;
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(PopupComponent);
 
 /***/ }),
-/* 579 */,
-/* 580 */,
+/* 579 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(580);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(118)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./popup.component.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./popup.component.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 580 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(117)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "[component=\"popup\"] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.4);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  pointer-events: none;\n  opacity: 0;\n  transition: .6s; }\n  [component=\"popup\"][active=\"true\"] {\n    opacity: 1;\n    transform: translateY(0);\n    pointer-events: auto; }\n  [component=\"popup\"] .popup-box {\n    flex: 0 0 auto;\n    height: auto;\n    min-height: 100px;\n    width: 400px;\n    background: white;\n    border-radius: 4px;\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    position: relative; }\n    [component=\"popup\"] .popup-box .popup-header {\n      font-size: 22px;\n      font-weight: 600;\n      padding: 20px 20px 0; }\n    [component=\"popup\"] .popup-box .popup-close {\n      position: absolute;\n      top: 0;\n      right: 0;\n      height: 40px;\n      width: 40px;\n      cursor: pointer;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    [component=\"popup\"] .popup-box .popup-content {\n      padding: 20px; }\n      [component=\"popup\"] .popup-box .popup-content .login-logos {\n        margin-top: 20px;\n        display: flex;\n        flex-direction: row;\n        justify-content: center; }\n      [component=\"popup\"] .popup-box .popup-content .login-item {\n        height: 50px;\n        width: 50px;\n        border-radius: 100px;\n        background: white;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        margin: 0 10px;\n        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);\n        overflow: hidden; }\n        [component=\"popup\"] .popup-box .popup-content .login-item img {\n          height: 50px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 581 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -71202,6 +71374,74 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var SET_POPUP = exports.SET_POPUP = 'SET_POPUP';
+
+var SET_USER = exports.SET_USER = 'SET_USER';
+
+/***/ }),
+/* 583 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // import * as Request from 'superagent';
+
+
+var _lodash = __webpack_require__(116);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions2 = __webpack_require__(582);
+
+var ACTIONS = _interopRequireWildcard(_actions2);
+
+var _dispatch = __webpack_require__(444);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var UserReducer = function () {
+    function UserReducer() {
+        _classCallCheck(this, UserReducer);
+
+        this.initialState = {
+            user: undefined
+        };
+        this.actions = _defineProperty({}, ACTIONS.SET_USER, this.set);
+
+        this.loadUser();
+    }
+
+    _createClass(UserReducer, [{
+        key: 'set',
+        value: function set(action, state) {
+            var obj = _.extend({}, {}, action);
+            delete obj.type;
+            return obj;
+        }
+    }, {
+        key: 'loadUser',
+        value: function loadUser() {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (!user) return;
+
+                console.log('User:', user);
+                (0, _dispatch.Dispatch)({ type: ACTIONS.SET_USER, user: user });
+            });
+        }
+    }]);
+
+    return UserReducer;
+}();
+
+exports.default = (0, _dispatch.CreateReducer)('User', new UserReducer());
 
 /***/ })
 /******/ ]);

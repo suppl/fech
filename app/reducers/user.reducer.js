@@ -1,22 +1,23 @@
 // import * as Request from 'superagent';
 import * as _ from "lodash";
 
+
 import * as ACTIONS from '../constants/actions.constants';
 import {Dispatch, State, CreateReducer} from './../services/dispatch.service';
 
-class PopupReducer {
+class UserReducer {
     initialState = {
-        active: false,
+        user: undefined,
     };
 
     actions = {
-        [ACTIONS.SET_POPUP]: this.set,
+        [ACTIONS.SET_USER]: this.set,
         // [ACTIONS.SET_ACCOUNT_DETAILS] : this.setAccount,
         // [ACTIONS.SAVE_ACCOUNT_DETAILS]: this.saveAccount,
     };
 
     constructor() {
-        // this.loadAccount();
+        this.loadUser();
     }
 
     set(action, state) {
@@ -24,6 +25,15 @@ class PopupReducer {
         delete obj.type;
         return obj;
     }
+
+    loadUser() {
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) return;
+
+            console.log('User:', user);
+            Dispatch({type: ACTIONS.SET_USER, user});
+        });
+    }
 }
 
-export default CreateReducer('Popup', new PopupReducer());
+export default CreateReducer('User', new UserReducer());

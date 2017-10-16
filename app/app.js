@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 //Reducers
 import NavReducer from './reducers/nav.reducer';
 import PopupReducer from './reducers/popup.reducer';
+import UserReducer from './reducers/user.reducer';
 
 //Components
 import Sidebar from './components/sidebar/sidebar.component';
@@ -20,6 +21,7 @@ import DashboardScreen from './screens/dashboard/dashboard.screen';
 export const store = createStore(combineReducers({
     Nav  : NavReducer,
     Popup: PopupReducer,
+    User : UserReducer,
 }));
 
 require('./app.scss');
